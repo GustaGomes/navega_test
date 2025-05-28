@@ -16,7 +16,7 @@
       <!-- Gráfico de pizza -->
       <div class="graph-container">
         <h2>Total em contribuições</h2>
-        <p class="total-value">R$ 999.999,99</p>
+        <p class="total-value">R$ {{ totalContribution | number : "1.0-0" }}</p>
 
         <canvas
           baseChart
@@ -31,14 +31,18 @@
             <span class="dot" style="background-color: #f44336"></span>
             <div>
               <p class="label">Contribuição mensal</p>
-              <p class="value">R$ 499.999,99</p>
+              <p class="value">
+                R$ {{ monthlyContribution.amount | number : "1.0-0" }}
+              </p>
             </div>
           </div>
           <div class="legend-item">
             <span class="dot" style="background-color: #3f51b5"></span>
             <div>
               <p class="label">Contribuição voluntária</p>
-              <p class="value">R$ 499.999,99</p>
+              <p class="value">
+                R$ {{ voluntaryContribution | number : "1.0-0" }}
+              </p>
             </div>
           </div>
         </div>
@@ -48,7 +52,11 @@
       <div class="contributions-cards">
         <mat-card class="contribution-card">
           <h3>Contribuição Mensal</h3>
-          <p>Valor: R$ 500,00 (5%)</p>
+          <p>
+            Valor: R$ {{ monthlyContribution.amount | number : "1.0-0" }} ({{
+              monthlyContribution.percentage
+            }}%)
+          </p>
           <button mat-stroked-button color="primary">
             Alterar Contribuição
           </button>
@@ -56,7 +64,7 @@
 
         <mat-card class="contribution-card">
           <h3>Contribuição Voluntária</h3>
-          <p>Valor: R$ 500,00</p>
+          <p>Valor: R$ {{ voluntaryContribution | number : "1.0-0" }}</p>
           <button mat-stroked-button color="primary">
             Alterar Contribuição
           </button>

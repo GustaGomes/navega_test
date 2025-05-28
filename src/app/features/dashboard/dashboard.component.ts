@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
+import { DashboardDataService } from '../../shared/services/dashboard-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,16 +8,13 @@ import { ChartData, ChartOptions, ChartType } from 'chart.js';
   styleUrls: ['./dashboard.component.less'],
 })
 export class DashboardComponent implements OnInit {
-  pieChartType: ChartType = 'doughnut';
+  totalContribution: number = 0;
+  monthlyContribution = { amount: 0, percentage: 0 };
+  voluntaryContribution: number = 0;
 
+  pieChartType: ChartType = 'doughnut';
   pieChartData: ChartData<'doughnut', number[], string | string[]> = {
-    // labels: ['Contribuição mensal', 'Contribuição voluntária'],
-    datasets: [
-      {
-        data: [500000, 500000],
-        backgroundColor: ['#F44336', '#3F51B5'],
-      },
-    ],
+    datasets: [],
   };
 
   pieChartOptions: ChartOptions = {
@@ -28,7 +26,33 @@ export class DashboardComponent implements OnInit {
     },
   };
 
-  constructor() {}
+  constructor(private dashboardData: DashboardDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.dashboardData.getTotalContributions().subscribe((total) => {
+      this.totalContribution = total;
+    });
+
+    this.dashboardData.getMonthlyContribution().subscribe((data) => {
+      this.monthlyContribution = data;
+    });
+
+    this.dashboardData.getVoluntaryContribution().subscribe((data) => {
+      this.voluntaryContribution = data;
+    });
+
+    this.dashboardData.getPieChartData().subscribe((chart) => {
+      this.pieChartData = {
+        // labels: chart.labels,
+        datasets: [
+          {
+            data: chart.data,
+            backgroundColor: ['#F44336', '#3F51B5'],
+            borderWidth: 0,
+            hoverOffset: 4,
+          },
+        ],
+      };
+    });
+  }
 }
