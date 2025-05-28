@@ -1,1 +1,51 @@
-<p>dashboard works!</p>
+<mat-sidenav-container class="dashboard-container">
+  <!-- Sidebar -->
+  <mat-sidenav mode="side" opened>
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+
+  <!-- Conteúdo principal -->
+  <mat-sidenav-content>
+    <!-- Header -->
+    <app-header></app-header>
+
+    <!-- Conteúdo do Dashboard -->
+    <div class="dashboard-content">
+      <h1>Total em contribuições</h1>
+
+      <!-- Gráfico de pizza -->
+      <div class="graph-container">
+        <canvas
+          baseChart
+          [data]="pieChartData"
+          [options]="pieChartOptions"
+          [type]="pieChartType"
+        >
+        </canvas>
+      </div>
+
+      <!-- Cards de contribuição -->
+      <div class="contributions-cards">
+        <mat-card class="contribution-card">
+          <h3>Contribuição Mensal</h3>
+          <p>Valor: R$ 500,00 (5%)</p>
+          <button mat-stroked-button color="primary">
+            Alterar Contribuição
+          </button>
+        </mat-card>
+
+        <mat-card class="contribution-card">
+          <h3>Contribuição Voluntária</h3>
+          <p>Valor: R$ 500,00</p>
+          <button mat-stroked-button color="primary">
+            Alterar Contribuição
+          </button>
+        </mat-card>
+      </div>
+
+      <button mat-flat-button color="primary" class="include-button">
+        Incluir Contribuição
+      </button>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
