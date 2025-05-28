@@ -1,0 +1,29 @@
+@import (reference) "../../../styles/variables.less";
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: @font-family;
+
+  h3 {
+    font-size: @font-size-base;
+    margin-bottom: 1rem;
+    color: @text-color;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: left;
+    color: @text-color;
+    font-size: @font-size-small;
+    width: 100%;
+
+    &:hover {
+      background-color: lighten(@primary-color, 40%);
+      color: @primary-color;
+    }
+  }
+}
