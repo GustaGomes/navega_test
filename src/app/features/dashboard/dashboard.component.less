@@ -30,12 +30,60 @@
       border-radius: @border-radius;
       box-shadow: @box-shadow-base;
       padding: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      // min-height: 200px;
-      width: 150px;
-      height: 150px;
+      text-align: center;
+
+      h2 {
+        font-size: @font-size-base;
+        margin: 0;
+        color: @text-color;
+      }
+
+      .total-value {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin: 0.5rem 0;
+        color: @text-color;
+      }
+
+      canvas {
+        max-width: 200px;
+        margin: 1rem auto;
+      }
+
+      .legend {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-top: 1rem;
+
+        .legend-item {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+          }
+
+          .label {
+            margin: 0;
+            font-size: @font-size-small;
+            color: @muted-text-color;
+          }
+
+          .value {
+            margin: 0;
+            font-weight: 600;
+            font-size: @font-size-small;
+            color: @text-color;
+          }
+        }
+      }
     }
 
     .contributions-cards {

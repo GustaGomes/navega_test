@@ -15,6 +15,9 @@
 
       <!-- Gráfico de pizza -->
       <div class="graph-container">
+        <h2>Total em contribuições</h2>
+        <p class="total-value">R$ 999.999,99</p>
+
         <canvas
           baseChart
           [data]="pieChartData"
@@ -22,6 +25,23 @@
           [type]="pieChartType"
         >
         </canvas>
+
+        <div class="legend">
+          <div class="legend-item">
+            <span class="dot" style="background-color: #f44336"></span>
+            <div>
+              <p class="label">Contribuição mensal</p>
+              <p class="value">R$ 499.999,99</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <span class="dot" style="background-color: #3f51b5"></span>
+            <div>
+              <p class="label">Contribuição voluntária</p>
+              <p class="value">R$ 499.999,99</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Cards de contribuição -->

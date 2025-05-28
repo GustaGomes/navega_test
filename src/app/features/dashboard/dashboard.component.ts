@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
   pieChartType: ChartType = 'doughnut';
 
   pieChartData: ChartData<'doughnut', number[], string | string[]> = {
-    labels: ['Contribuição mensal', 'Contribuição voluntária'],
+    // labels: ['Contribuição mensal', 'Contribuição voluntária'],
     datasets: [
       {
         data: [500000, 500000],
