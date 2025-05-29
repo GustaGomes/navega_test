@@ -1,156 +1,155 @@
 @import (reference) "../../../styles/variables.less";
 
-.dashboard-container {
-  height: 100vh;
+/* Estrutura geral: header fixo, menu lateral abaixo */
+.main-content {
+  display: flex;
+  min-height: calc(100vh - 64px); // Ajusta considerando altura do header
+}
 
-  mat-sidenav-content {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: @background-color;
-    font-family: @font-family;
+.sidebar {
+  width: 220px;
+  background: @card-background;
+  border-right: 1px solid @border-color;
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 1rem;
+  background: @background-color;
+  font-family: @font-family;
+
+  h1 {
+    font-size: @font-size-large;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: @primary-color;
   }
 
-  .dashboard-content {
+  .graph-container {
+    background: @card-background;
+    border-radius: @border-radius;
+    box-shadow: @box-shadow-base;
     padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    flex: 1 1 auto;
+    text-align: center;
 
-    h1 {
-      font-size: @font-size-large;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: @primary-color;
+    h2 {
+      font-size: @font-size-base;
+      margin: 0;
+      color: @text-color;
     }
 
-    .graph-container {
-      background: @card-background;
-      border-radius: @border-radius;
-      box-shadow: @box-shadow-base;
-      padding: 1rem;
-      text-align: center;
+    .total-value {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin: 0.5rem 0;
+      color: @text-color;
+    }
 
-      h2 {
+    canvas {
+      max-width: 200px;
+      margin: 1rem auto;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .dot {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          display: inline-block;
+        }
+
+        .label {
+          margin: 0;
+          font-size: @font-size-small;
+          color: @muted-text-color;
+        }
+
+        .value {
+          margin: 0;
+          font-weight: 600;
+          font-size: @font-size-small;
+          color: @text-color;
+        }
+      }
+    }
+  }
+
+  .contributions-cards {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+
+    .contribution-card {
+      flex: 1 1 250px;
+      box-shadow: @box-shadow-base;
+      border-radius: @border-radius;
+      background: @card-background;
+      padding: @card-padding;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      border: 1px solid @border-color;
+
+      h3 {
         font-size: @font-size-base;
         margin: 0;
         color: @text-color;
       }
 
-      .total-value {
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin: 0.5rem 0;
-        color: @text-color;
+      p {
+        font-size: @font-size-small;
+        color: @muted-text-color;
       }
 
-      canvas {
-        max-width: 200px;
-        margin: 1rem auto;
-      }
+      button {
+        align-self: flex-start;
+        color: @button-text-color;
+        background-color: @primary-color;
 
-      .legend {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        margin-top: 1rem;
-
-        .legend-item {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-
-          .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-          }
-
-          .label {
-            margin: 0;
-            font-size: @font-size-small;
-            color: @muted-text-color;
-          }
-
-          .value {
-            margin: 0;
-            font-weight: 600;
-            font-size: @font-size-small;
-            color: @text-color;
-          }
+        &:hover {
+          background-color: @button-hover-color;
         }
       }
     }
+  }
 
-    .contributions-cards {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+  .include-button {
+    align-self: center;
+    margin-top: 1rem;
+    background-color: @primary-color;
+    color: @button-text-color;
 
-      .contribution-card {
-        flex: 1 1 250px;
-        box-shadow: @box-shadow-base;
-        border-radius: @border-radius;
-        background: @card-background;
-        padding: @card-padding;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        border: 1px solid @border-color;
-
-        h3 {
-          font-size: @font-size-base;
-          margin: 0;
-          color: @text-color;
-        }
-
-        p {
-          font-size: @font-size-small;
-          color: @muted-text-color;
-        }
-
-        button {
-          align-self: flex-start;
-          color: @button-text-color;
-          background-color: @primary-color;
-
-          &:hover {
-            background-color: @button-hover-color;
-          }
-        }
-      }
-    }
-
-    .include-button {
-      align-self: center;
-      margin-top: 1rem;
-      background-color: @primary-color;
-      color: @button-text-color;
-
-      &:hover {
-        background-color: @button-hover-color;
-      }
+    &:hover {
+      background-color: @button-hover-color;
     }
   }
 }
 
 /* Responsividade para telas menores */
 @media (max-width: @breakpoint-sm) {
-  .dashboard-container {
-    mat-sidenav {
+  .main-content {
+    flex-direction: column;
+
+    .sidebar {
+      width: 100%;
+      border-right: none;
+      border-bottom: 1px solid @border-color;
       display: none;
     }
+  }
 
-    .dashboard-content {
-      padding: 0.5rem;
-
-      .contributions-cards {
-        flex-direction: column;
-      }
-    }
+  .dashboard-content {
+    padding: 0.5rem;
   }
 }

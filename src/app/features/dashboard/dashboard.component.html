@@ -1,79 +1,73 @@
-<mat-sidenav-container class="dashboard-container">
-  <!-- Sidebar -->
-  <mat-sidenav mode="side" opened>
+<!-- Header fixo -->
+<app-header></app-header>
+
+<!-- Conteúdo principal com menu lateral e dashboard -->
+<div class="main-content">
+  <!-- Menu lateral -->
+  <aside class="sidebar">
     <app-sidebar></app-sidebar>
-  </mat-sidenav>
+  </aside>
 
   <!-- Conteúdo principal -->
-  <mat-sidenav-content>
-    <!-- Header -->
-    <app-header></app-header>
+  <div class="dashboard-content">
+    <h1>Total em contribuições</h1>
 
-    <!-- Conteúdo do Dashboard -->
-    <div class="dashboard-content">
-      <h1>Total em contribuições</h1>
+    <!-- Gráfico de pizza -->
+    <div class="graph-container">
+      <h2>Total em contribuições</h2>
+      <p class="total-value">R$ {{ totalContribution | number : "1.0-0" }}</p>
 
-      <!-- Gráfico de pizza -->
-      <div class="graph-container">
-        <h2>Total em contribuições</h2>
-        <p class="total-value">R$ {{ totalContribution | number : "1.0-0" }}</p>
+      <canvas
+        baseChart
+        [data]="pieChartData"
+        [options]="pieChartOptions"
+        [type]="pieChartType"
+      >
+      </canvas>
 
-        <canvas
-          baseChart
-          [data]="pieChartData"
-          [options]="pieChartOptions"
-          [type]="pieChartType"
-        >
-        </canvas>
-
-        <div class="legend">
-          <div class="legend-item">
-            <span class="dot" style="background-color: #f44336"></span>
-            <div>
-              <p class="label">Contribuição mensal</p>
-              <p class="value">
-                R$ {{ monthlyContribution.amount | number : "1.0-0" }}
-              </p>
-            </div>
+      <div class="legend">
+        <div class="legend-item">
+          <span class="dot" style="background-color: #f44336"></span>
+          <div>
+            <p class="label">Contribuição mensal</p>
+            <p class="value">
+              R$ {{ monthlyContribution.amount | number : "1.0-0" }}
+            </p>
           </div>
-          <div class="legend-item">
-            <span class="dot" style="background-color: #3f51b5"></span>
-            <div>
-              <p class="label">Contribuição voluntária</p>
-              <p class="value">
-                R$ {{ voluntaryContribution | number : "1.0-0" }}
-              </p>
-            </div>
+        </div>
+        <div class="legend-item">
+          <span class="dot" style="background-color: #3f51b5"></span>
+          <div>
+            <p class="label">Contribuição voluntária</p>
+            <p class="value">
+              R$ {{ voluntaryContribution | number : "1.0-0" }}
+            </p>
           </div>
         </div>
       </div>
-
-      <!-- Cards de contribuição -->
-      <div class="contributions-cards">
-        <mat-card class="contribution-card">
-          <h3>Contribuição Mensal</h3>
-          <p>
-            Valor: R$ {{ monthlyContribution.amount | number : "1.0-0" }} ({{
-              monthlyContribution.percentage
-            }}%)
-          </p>
-          <button mat-stroked-button color="primary">
-            Alterar Contribuição
-          </button>
-        </mat-card>
-
-        <mat-card class="contribution-card">
-          <h3>Contribuição Voluntária</h3>
-          <p>Valor: R$ {{ voluntaryContribution | number : "1.0-0" }}</p>
-          <button mat-stroked-button color="primary">
-            Alterar Contribuição
-          </button>
-        </mat-card>
-      </div>
-
-      <button mat-flat-button color="primary" class="include-button">
-        Incluir Contribuição
-      </button>
     </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+
+    <!-- Cards de contribuição -->
+    <div class="contributions-cards">
+      <mat-card class="contribution-card">
+        <h3>Contribuição Mensal</h3>
+        <p>
+          Valor: R$ {{ monthlyContribution.amount | number : "1.0-0" }} ({{
+            monthlyContribution.percentage
+          }}%)
+        </p>
+        <button mat-stroked-button color="primary">Alterar Contribuição</button>
+      </mat-card>
+
+      <mat-card class="contribution-card">
+        <h3>Contribuição Voluntária</h3>
+        <p>Valor: R$ {{ voluntaryContribution | number : "1.0-0" }}</p>
+        <button mat-stroked-button color="primary">Alterar Contribuição</button>
+      </mat-card>
+    </div>
+
+    <button mat-flat-button color="primary" class="include-button">
+      Incluir Contribuição
+    </button>
+  </div>
+</div>
