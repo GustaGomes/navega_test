@@ -51,7 +51,6 @@
     .forgot-password {
       margin-top: 1rem;
       font-size: 0.85rem;
-      color: @primary-color;
       text-decoration: none;
 
       &:hover {
@@ -63,6 +62,14 @@
       margin-top: auto;
       font-size: 0.75rem;
       color: @muted-text-color;
+    }
+    .link-span {
+      color: @primary-color;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 
@@ -85,5 +92,9 @@
       font-size: 1rem;
       color: #ffffff;
     }
+  }
+
+  .text-request {
+    text-align: center;
   }
 }
