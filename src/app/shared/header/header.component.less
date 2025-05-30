@@ -1,24 +1,27 @@
 @import (reference) "../../../styles/variables.less";
 
 .header-toolbar {
-  background-color: #21232a; // cor do header
+  background-color: #21232a;
   color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px; // ajuste de altura padrão
-  padding: 0px;
+  padding: 0 1rem;
 
-  .logo {
-    font-weight: bold;
-    font-size: @font-size-base;
-    color: #ffffff;
-  }
-
-  .header-left,
-  .header-right {
+  .header-left {
     display: flex;
     align-items: center;
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .header-right {
+    display: flex;
     gap: 0.5rem;
 
     button {

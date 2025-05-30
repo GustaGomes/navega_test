@@ -2,24 +2,22 @@
   <div class="header-container">
     <!-- Ícone de perfil à esquerda (opcional) -->
     <div class="header-left">
-      <button mat-icon-button aria-label="Perfil">
-        <mat-icon>account_circle</mat-icon>
-      </button>
+      <img
+        class="user-avatar"
+        src="https://avatars.githubusercontent.com/u/26532535?s=96&v=4"
+        alt="Usuário"
+      />
     </div>
 
-    <!-- Logo / Nome da aplicação -->
-    <!-- <span class="logo">navega</span> -->
-
-    <!-- Ícones à direita -->
     <div class="header-right">
       <button mat-icon-button aria-label="Home">
-        <mat-icon>homeIcon</mat-icon>
+        <mat-icon class="header-icon" svgIcon="homeSvg">homeIcon</mat-icon>
       </button>
       <button mat-icon-button aria-label="Visualizações">
-        <mat-icon>visibilityIcon</mat-icon>
+        <mat-icon class="header-icon" svgIcon="eye">visibilityIcon</mat-icon>
       </button>
       <button mat-icon-button aria-label="Atualizar">
-        <mat-icon>autorenew</mat-icon>
+        <mat-icon class="header-icon" svgIcon="repeat-alt">autorenew</mat-icon>
       </button>
     </div>
   </div>
