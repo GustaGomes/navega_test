@@ -3,13 +3,15 @@
 /* Estrutura geral: header fixo, menu lateral abaixo */
 .main-content {
   display: flex;
+  width: 90%;
+  margin: auto;
   min-height: calc(100vh - 64px); // Ajusta considerando altura do header
 }
 
 .sidebar {
   width: 220px;
   background: @card-background;
-  border-right: 1px solid @border-color;
+  // border-right: 1px solid @border-color;
 }
 
 .dashboard-content {
@@ -27,8 +29,9 @@
 
   .graph-container {
     background: @card-background;
-    border-radius: @border-radius;
-    box-shadow: @box-shadow-base;
+    // border-radius: @border-radius;
+    border-bottom: 1px solid @border-color;
+    // box-shadow: @box-shadow-base;
     padding: 1rem;
     text-align: center;
 
@@ -53,6 +56,8 @@
     .legend {
       display: flex;
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
       gap: 1rem;
       margin-top: 1rem;
 
@@ -134,6 +139,31 @@
       background-color: @button-hover-color;
     }
   }
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid @border-color;
+
+  .back-button {
+    color: @text-color;
+  }
+
+  .page-title {
+    margin-left: 0.5rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: @text-color;
+  }
+}
+
+.divider {
+  margin: 0;
+  border: none;
+  border-top: 1px solid @border-color;
 }
 
 /* Responsividade para telas menores */

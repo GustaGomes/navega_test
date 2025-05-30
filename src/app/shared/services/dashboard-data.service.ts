@@ -8,11 +8,11 @@ export class DashboardDataService {
   constructor() {}
 
   getTotalContributions(): Observable<number> {
-    return of(999999.99);
+    return of(700000);
   }
 
   getMonthlyContribution(): Observable<{ amount: number; percentage: number }> {
-    return of({ amount: 500000, percentage: 5 });
+    return of({ amount: 200000, percentage: 5 });
   }
 
   getVoluntaryContribution(): Observable<number> {
@@ -22,7 +22,7 @@ export class DashboardDataService {
   getPieChartData(): Observable<{ labels: string[]; data: number[] }> {
     return of({
       labels: ['Contribuição mensal', 'Contribuição voluntária'],
-      data: [500000, 500000],
+      data: [200000, 500000],
     });
   }
 }
