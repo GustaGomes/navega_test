@@ -16,7 +16,7 @@ Este projeto é um teste técnico em **Angular** que exibe um painel de contribu
 1️⃣ Clone este repositório:
 
 ```bash
-git clone <url-do-repositorio>
+git clone <https://github.com/GustaGomes/navega_test.git>
 cd frontend-navega-test
 
 
