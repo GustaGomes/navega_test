@@ -19,7 +19,7 @@
   <div class="dashboard-content">
     <!-- Gráfico de pizza -->
     <div class="graph-container">
-      <p>Total em contribuições</p>
+      <p class="total-title">Total em contribuições</p>
       <p class="total-value">R$ {{ totalContribution | number : "1.0-0" }}</p>
 
       <canvas
@@ -59,24 +59,57 @@
     <!-- Cards de contribuição -->
     <div class="contributions-cards">
       <mat-card class="contribution-card">
-        <h3>Contribuição Mensal</h3>
-        <p>
-          Valor: R$ {{ monthlyContribution.amount | number : "1.0-0" }} ({{
-            monthlyContribution.percentage
-          }}%)
-        </p>
-        <button mat-stroked-button color="primary">Alterar Contribuição</button>
+        <div class="card-header">
+          <div>
+            <mat-icon>attach_money</mat-icon>
+            <h3>Contribuição mensal</h3>
+          </div>
+          <mat-icon class="arrow-icon">chevron_right</mat-icon>
+        </div>
+
+        <div class="card-info">
+          <p>Valor da contribuição</p>
+          <p class="amount">
+            R$ {{ monthlyContribution.amount | number : "1.0-0" }}
+          </p>
+        </div>
+        <div class="card-info">
+          <p>Porcentagem do salário</p>
+          <p class="percentage">{{ monthlyContribution.percentage }}%</p>
+        </div>
+
+        <div class="btn-card">
+          <button mat-stroked-button color="primary">
+            Alterar Contribuição
+          </button>
+        </div>
       </mat-card>
 
       <mat-card class="contribution-card">
-        <h3>Contribuição Voluntária</h3>
-        <p>Valor: R$ {{ voluntaryContribution | number : "1.0-0" }}</p>
-        <button mat-stroked-button color="primary">Alterar Contribuição</button>
+        <div class="card-header">
+          <div>
+            <mat-icon>attach_money</mat-icon>
+            <h3>Contribuição voluntária</h3>
+          </div>
+          <mat-icon class="arrow-icon">chevron_right</mat-icon>
+        </div>
+
+        <div class="card-info">
+          <p>Valor da contribuição</p>
+          <p class="amount">
+            R$ {{ voluntaryContribution | number : "1.0-0" }}
+          </p>
+        </div>
+        <div class="btn-card">
+          <button mat-stroked-button color="primary">
+            Alterar Contribuição
+          </button>
+        </div>
       </mat-card>
     </div>
 
-    <button mat-flat-button color="primary" class="include-button">
-      Incluir Contribuição
-    </button>
+    <div class="include-button">
+      <button mat-flat-button color="primary">Incluir Contribuição</button>
+    </div>
   </div>
 </div>
