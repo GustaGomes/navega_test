@@ -1,19 +1,42 @@
 @import (reference) "../../../styles/variables.less";
 
-mat-toolbar {
-  background-color: #1d1d1d;
+.header-toolbar {
+  background-color: #21232a; // cor do header
   color: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 64px; // ajuste de altura padrão
+  padding: 0px;
 
   .logo {
     font-weight: bold;
-    color: #ffffff;
     font-size: @font-size-base;
+    color: #ffffff;
   }
 
-  button {
-    color: #ffffff;
+  .header-left,
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    button {
+      color: #ffffff;
+    }
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: @breakpoint-sm) {
+  .header-toolbar {
+    display: none;
   }
 }
