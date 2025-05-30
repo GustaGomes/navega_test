@@ -1,0 +1,45 @@
+@import (reference) "../../../styles/variables.less";
+
+.header-toolbar {
+  background-color: #21232a;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .header-right {
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      color: #ffffff;
+    }
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: @breakpoint-sm) {
+  .header-toolbar {
+    display: none;
+  }
+}

@@ -1,0 +1,115 @@
+<!-- Header fixo -->
+<app-header></app-header>
+
+<div class="page-header">
+  <button mat-icon-button aria-label="Voltar" class="back-button">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span class="page-title">MEU PLANO</span>
+</div>
+
+<!-- Conteúdo principal com menu lateral e dashboard -->
+<div class="main-content">
+  <!-- Menu lateral -->
+  <aside class="sidebar">
+    <app-sidebar></app-sidebar>
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <div class="dashboard-content">
+    <!-- Gráfico de pizza -->
+    <div class="graph-container">
+      <p class="total-title">Total em contribuições</p>
+      <p class="total-value">R$ {{ totalContribution | number : "1.0-0" }}</p>
+
+      <canvas
+        baseChart
+        [data]="pieChartData"
+        [options]="pieChartOptions"
+        [type]="pieChartType"
+      >
+      </canvas>
+
+      <div class="legend">
+        <div class="legend-item">
+          <div>
+            <p class="label">
+              <span class="dot" style="background-color: #e22e6f"></span>
+              Contribuição mensal
+            </p>
+            <p class="value">
+              R$ {{ monthlyContribution.amount | number : "1.0-0" }}
+            </p>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div>
+            <p class="label">
+              <span class="dot" style="background-color: #594cbe"></span>
+              Contribuição voluntária
+            </p>
+            <p class="value">
+              R$ {{ voluntaryContribution | number : "1.0-0" }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cards de contribuição -->
+    <div class="contributions-cards">
+      <mat-card class="contribution-card">
+        <div class="card-header">
+          <div>
+            <mat-icon class="coin-icon" svgIcon="coins">attach_money</mat-icon>
+            <h3>Contribuição mensal</h3>
+          </div>
+          <mat-icon class="arrow-icon">chevron_right</mat-icon>
+        </div>
+
+        <div class="card-info">
+          <p>Valor da contribuição</p>
+          <p class="amount">
+            R$ {{ monthlyContribution.amount | number : "1.0-0" }}
+          </p>
+        </div>
+        <div class="card-info">
+          <p>Porcentagem do salário</p>
+          <p class="percentage">{{ monthlyContribution.percentage }}%</p>
+        </div>
+
+        <div class="btn-card">
+          <button mat-stroked-button color="primary">
+            Alterar Contribuição
+          </button>
+        </div>
+      </mat-card>
+
+      <mat-card class="contribution-card">
+        <div class="card-header">
+          <div>
+            <mat-icon class="coin-icon" svgIcon="coins">attach_money</mat-icon>
+            <h3>Contribuição voluntária</h3>
+          </div>
+          <mat-icon class="arrow-icon">chevron_right</mat-icon>
+        </div>
+
+        <div class="card-info">
+          <p>Valor da contribuição</p>
+          <p class="amount">
+            R$ {{ voluntaryContribution | number : "1.0-0" }}
+          </p>
+        </div>
+        <div class="btn-card">
+          <button mat-stroked-button color="primary">
+            Alterar Contribuição
+          </button>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="include-button">
+      <button mat-flat-button color="primary">Incluir Contribuição</button>
+    </div>
+  </div>
+</div>
