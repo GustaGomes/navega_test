@@ -2,51 +2,60 @@
 
 .login-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
-  background-color: #f7f7f7;
+  background: @background-color;
 
-  .login-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 400px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  .login-form-container {
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background: #ffffff;
+    max-width: 462px;
+    min-width: 360px;
 
-    .logo {
-      text-align: center;
-      margin-bottom: 1rem;
-
-      img {
-        max-width: 150px;
-      }
+    .content-form-login {
+      max-width: 312px;
     }
 
-    h1 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      text-align: center;
+    .input-login {
+      background-color: red;
     }
 
-    p {
-      font-size: 0.9rem;
-      margin-bottom: 1rem;
+    .login-logo {
+      width: 150px;
+    }
+
+    .tittle-login {
+      font-size: 1rem;
+      font-weight: 600;
       text-align: center;
-      color: #666;
+      margin: 0;
+    }
+
+    .sub-tittle-login {
+      font-size: @font-size-small;
+      font-weight: 400;
+      text-align: center;
     }
 
     .full-width {
       width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .login-button {
+      width: 100%;
+      margin-top: 1rem;
+      background-color: @primary-color;
+      color: #ffffff;
     }
 
     .forgot-password {
-      display: block;
       margin-top: 1rem;
-      text-align: center;
+      font-size: 0.85rem;
       color: @primary-color;
-      font-size: 0.9rem;
       text-decoration: none;
 
       &:hover {
@@ -55,11 +64,30 @@
     }
 
     .version {
-      display: block;
-      margin-top: 1rem;
-      text-align: center;
+      margin-top: auto;
       font-size: 0.75rem;
-      color: #999;
+      color: @muted-text-color;
+    }
+  }
+
+  .login-image-container {
+    flex: 1;
+    background: linear-gradient(135deg, #1e1e2f, #4c4c8c);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .welcome-text {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #ffffff;
     }
   }
 }

@@ -1,43 +1,59 @@
 <div class="login-container">
-  <div class="login-card">
-    <div class="logo">
-      <img src="assets/logo-navega.svg" alt="Navega Logo" />
+  <!-- Coluna esquerda: formulário de login -->
+  <div class="login-form-container">
+    <div>
+      <img class="login-logo" src="assets/Logo.svg" alt="Logo Navega" />
     </div>
-    <h1>Boas-vindas ao Portal!</h1>
-    <p>Para começar, qual seu email ou CPF?</p>
+    <div class="content-form-login">
+      <p class="tittle-login">Boas-vindas ao Portal!</p>
+      <p class="tittle-login">Para começar, qual seu email ou CPF?</p>
+      <p class="sub-tittle-login">
+        Precisamos desta confirmação para dar início ao seu acesso.
+      </p>
 
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Email ou CPF</mat-label>
-        <input
-          matInput
-          formControlName="email"
-          placeholder="Digite seu email ou CPF"
-        />
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-          Campo obrigatório
-        </mat-error>
-      </mat-form-field>
+      <form [formGroup]="loginForm">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email ou CPF*</mat-label>
+          <input class="input-login" matInput formControlName="email" />
+        </mat-form-field>
 
-      <mat-form-field appearance="fill" class="full-width">
-        <mat-label>Senha</mat-label>
-        <input
-          matInput
-          type="password"
-          formControlName="password"
-          placeholder="Digite sua senha"
-        />
-        <mat-error *ngIf="loginForm.get('password')?.hasError('required')">
-          Campo obrigatório
-        </mat-error>
-      </mat-form-field>
-
-      <button mat-flat-button color="primary" class="full-width" type="submit">
-        ACESSAR
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Senha*</mat-label>
+          <input
+            matInput
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="togglePasswordVisibility()"
+            [attr.aria-label]="'Mostrar/ocultar senha'"
+            [attr.aria-pressed]="!hidePassword"
+            type="button"
+          >
+            <mat-icon>{{
+              hidePassword ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
+    <div>
+      <button
+        mat-flat-button
+        color="primary"
+        class="login-button"
+        (click)="onSubmit()"
+      >
+        Acessar
       </button>
-    </form>
+      <a href="#" class="forgot-password">Esqueceu a senha? Acesse aqui</a>
+      <p class="version">Versão 0.0.1</p>
+    </div>
+  </div>
 
-    <a class="forgot-password" href="#">Esqueceu a senha? Acesse aqui</a>
-    <span class="version">Versão 0.0.1</span>
+  <div class="login-image-container">
+    <img src="assets/Image.svg" alt="Dashboard" />
   </div>
 </div>
